@@ -18,5 +18,11 @@ export default {
         return notes.data
       }).catch(e => console.log(e))
     // return axios.get(url + '/').then(response => response.data)
+  },
+  updateNote (id, text) {
+    return axios.patch(url + 'notes/' + id, {text: text})
+      .then(() => {
+        console.log('Note updated')
+      }).catch(e => console.log(e))
   }
 }

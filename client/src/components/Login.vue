@@ -7,7 +7,7 @@
             <label for="inputPassword">Password</label>
             <input class="form-control" type="password" v-model="password" required>
             <button class="btn btn-lg btn-outline-primary btn-block mt-3" type="submit" @click="login">Login</button>
-            
+
         </div>
     </div>
 </template>
@@ -35,7 +35,6 @@ export default {
         this.$router.push('/')
       } catch (error) {
         console.log(error)
-       
       }
     }
   }

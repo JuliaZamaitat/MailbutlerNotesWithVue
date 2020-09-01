@@ -9,7 +9,7 @@
           </a>
         </div>
         <div class="card-body pb-0">
-          <div class="note-text" contenteditable="true">{{ note.text }}</div>
+          <div class="note-text" :id="note.id" contenteditable="true" @blur="updateNote">{{ note.text }}</div>
         </div>
       </div>
     </div>
@@ -40,6 +40,9 @@ export default {
       this.notes = []
       let userNotes = await AuthService.getNotes()
       this.notes = userNotes
+    },
+    updateNote (e) {
+      AuthService.updateNote(e.target.id, e.target.innerText)
     },
 
     logout () {
