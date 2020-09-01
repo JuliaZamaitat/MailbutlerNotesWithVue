@@ -24,5 +24,15 @@ export default {
       .then(() => {
         console.log('Note updated')
       }).catch(e => console.log(e))
+  },
+  addNote () {
+    const params = {
+      context: 'Neuer Kontext ohne Mail',
+      text: 'Deine neue Notiz'
+    }
+    return axios.post(url + 'notes', params)
+      .then(() => {
+        console.log('Note added')
+      }).catch(e => console.log(e))
   }
 }

@@ -6,7 +6,7 @@
     </div>
 
       <div class="text-center mt-4 add-note">
-        <a class="btn add-button text-center">
+        <a class="btn add-button text-center" @click="addNote">
           <font-awesome-icon icon="plus" size="2x" />
         </a>
       </div>
@@ -37,13 +37,13 @@ export default {
       let userNotes = await AuthService.getNotes()
       this.notes = userNotes
     },
-    updateNote (e) {
-      AuthService.updateNote(e.target.id, e.target.innerText)
-    },
-
     logout () {
       this.$store.dispatch('logout')
       this.$router.push({ name: 'Login' })
+    },
+    async addNote () {
+      await AuthService.addNote()
+      this.getNotes()
     }
   }
 }

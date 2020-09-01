@@ -20,7 +20,6 @@ export default {
   props: ['id', 'text'],
   methods: {
     updateNote (e) {
-      console.log(this.text)
       AuthService.updateNote(this.id, e.target.innerText)
     }
   }
