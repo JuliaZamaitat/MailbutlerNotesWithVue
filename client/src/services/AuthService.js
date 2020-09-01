@@ -12,7 +12,11 @@ export default {
       })
       .catch(e => console.log(e))
   },
-  getSecretContent () {
+  getNotes () {
+    return axios.get(url + 'notes')
+      .then((notes) => {
+        return notes.data
+      }).catch(e => console.log(e))
     // return axios.get(url + '/').then(response => response.data)
   }
 }
