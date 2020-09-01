@@ -5,21 +5,26 @@ import App from './App'
 import router from './router'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import store from './store/store.js'
+import Axios from 'axios'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret, faTrash, faPlus} from '@fortawesome/free-solid-svg-icons'
+import {faTrash, faPlus} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
- 
-library.add(faUserSecret, faTrash, faPlus)
- 
+
+library.add(faTrash, faPlus)
+
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
+
+Axios.defaults.headers.common['Authorization'] = `Bearer ${store.state.token}`
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

@@ -30,13 +30,28 @@
         </a>
       </div>
     </div>
-  
+
 </template>
 
 <script>
-export default {};
+export default {
+  data () {
+    return {
+      secretMessage: '',
+      email: ''
+    }
+  },
+  async created () {
+    if (!this.$store.getters.isLoggedIn) this.$router.push({ name: 'Login' })
+  },
+  methods: {
+    logout () {
+      this.$store.dispatch('logout')
+      this.$router.push({ name: 'Login' })
+    }
+  }
+}
 </script>
-
 
 <style scoped>
 .small-card.card {
