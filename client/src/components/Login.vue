@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container mt-5">
         <h1>Login</h1>
         <div class="data-form mt-5">
             <label for="inputEmail">Email address</label>

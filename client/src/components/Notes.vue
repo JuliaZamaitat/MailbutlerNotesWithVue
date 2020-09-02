@@ -1,18 +1,20 @@
 <template>
   <div>
     <LogoutButton></LogoutButton>
-    <h1>Notes</h1>
-    <div class="my-notes mt-4"  v-for="note in notes" :key="note.id">
-      <Note :id="note.id" :text="note.text"></Note>
-    </div>
-
-      <div class="text-center mt-4 add-note">
-        <a class="btn add-button text-center" @click="addNote">
-          <font-awesome-icon icon="plus" size="2x" />
-        </a>
+    <div class="container">
+      <h1>Notes</h1>
+      <div class="my-notes mt-4">
+        <div v-for="note in notes" :key="note.id">
+          <Note :id="note.id" :text="note.text"></Note>
+        </div>
+      </div>
+        <div class="text-center mt-4 add-note">
+          <a class="btn add-button text-center" @click="addNote">
+            <font-awesome-icon icon="plus" size="2x" />
+          </a>
+        </div>
       </div>
     </div>
-
 </template>
 
 <script>
@@ -30,7 +32,7 @@ export default {
       notes: []
     }
   },
-  async created () {
+  created () {
     this.checkToken()
     window.addEventListener('unload', this.checkToken)
     this.getNotes()
@@ -56,7 +58,6 @@ export default {
 </script>
 
 <style scoped>
-
 .my-notes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
