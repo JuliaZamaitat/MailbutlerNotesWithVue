@@ -9,10 +9,10 @@ import store from './store/store.js'
 import Axios from 'axios'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import {faTrash, faPlus} from '@fortawesome/free-solid-svg-icons'
+import {faTrash, faPlus, faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faTrash, faPlus)
+library.add(faTrash, faPlus, faSignOutAlt)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

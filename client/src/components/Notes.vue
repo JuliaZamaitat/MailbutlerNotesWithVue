@@ -1,5 +1,6 @@
 <template>
   <div>
+    <LogoutButton></LogoutButton>
     <h1>Notes</h1>
     <div class="my-notes mt-4"  v-for="note in notes" :key="note.id">
       <Note :id="note.id" :text="note.text"></Note>
@@ -17,10 +18,12 @@
 <script>
 import AuthService from '@/services/AuthService.js'
 import Note from '@/components/Note.vue'
+import LogoutButton from '@/components/LogoutButton.vue'
 
 export default {
   components: {
-    Note
+    Note,
+    LogoutButton
   },
   data () {
     return {
@@ -28,8 +31,12 @@ export default {
     }
   },
   async created () {
-    if (!this.$store.getters.isLoggedIn) this.$router.push({ name: 'Login' })
+    this.checkToken()
+    window.addEventListener('unload', this.checkToken)
     this.getNotes()
+  },
+  beforeDestroy () {
+    window.removeEventListener('unload', this.checkToken)
   },
   methods: {
     async getNotes () {
@@ -37,13 +44,12 @@ export default {
       let userNotes = await AuthService.getNotes()
       this.notes = userNotes
     },
-    logout () {
-      this.$store.dispatch('logout')
-      this.$router.push({ name: 'Login' })
-    },
     async addNote () {
       await AuthService.addNote()
       this.getNotes()
+    },
+    checkToken () {
+      if (!this.$store.getters.isLoggedIn) this.$router.push({ name: 'Login' })
     }
   }
 }
