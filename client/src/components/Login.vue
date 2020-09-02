@@ -11,7 +11,7 @@
           </div>
         </div>
       </div>
-        <div class="svg-wrapper mb-2" align="right">
+        <div class="svg-wrapper mb-2">
           <svg width="300" height="197" viewBox="0 0 892 587" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="undraw_random_thoughts_xejj 1" clip-path="url(#clip0)">
             <g id="right-note">
@@ -159,4 +159,51 @@ h2 {
     height: 197px !important;
   }
 }
+
+ #upper-note {
+  animation: noteUp 2s ease-in-out;
+  transform-origin: top;
+  animation-delay: 1s;
+}
+
+#right-note {
+  animation: noteShake 2s linear;
+  transform-origin: center;
+  animation-delay: 1s;
+}
+
+#left-note {
+  animation: noteShakeLeft 2s linear ;
+  transform-origin: center;
+  animation-delay: 1s;
+}
+
+@keyframes noteUp {
+  0%, 100% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(50deg);
+  }
+}
+
+@keyframes noteShake {
+  0%, 100% {
+    transform: rotateZ(0deg);
+  }
+  50%  {
+    transform: rotateZ(10deg);
+  }
+ 
+}
+
+@keyframes noteShakeLeft {
+  0%, 100% {
+    transform: rotateZ(0deg);
+  }
+  50%  {
+    transform: rotateZ(-5deg);
+  }
+}
+
 </style>
