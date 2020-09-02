@@ -17,7 +17,6 @@ export default {
       .then((notes) => {
         return notes.data
       }).catch(e => console.log(e))
-    // return axios.get(url + '/').then(response => response.data)
   },
   updateNote (id, text) {
     return axios.patch(url + 'notes/' + id, {text: text})
@@ -33,6 +32,12 @@ export default {
     return axios.post(url + 'notes', params)
       .then(() => {
         console.log('Note added')
+      }).catch(e => console.log(e))
+  },
+  deleteNote (id) {
+    return axios.delete(url + 'notes/' + id)
+      .then(() => {
+        console.log('Note deleted')
       }).catch(e => console.log(e))
   }
 }

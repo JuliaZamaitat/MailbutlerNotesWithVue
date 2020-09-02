@@ -3,7 +3,7 @@
     <div>
         <div class="card small-card shadow-sm">
         <div class="card-header text-right p-0">
-          <a class="btn delete-button">
+          <a class="btn delete-button" @click="deleteNote">
             <font-awesome-icon icon="trash" />
           </a>
         </div>
@@ -21,6 +21,10 @@ export default {
   methods: {
     updateNote (e) {
       AuthService.updateNote(this.id, e.target.innerText)
+    },
+    async deleteNote () {
+      await AuthService.deleteNote(this.id)
+      this.$parent.getNotes()
     }
   }
 }
