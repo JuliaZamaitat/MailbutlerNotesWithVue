@@ -3,14 +3,14 @@
     <div>
         <div class="card small-card shadow-sm">
         <div class="card-header text-right p-0">
-          <a class="btn delete-button" @click="deleteNote">
+            <a class="btn delete-button" @click="deleteNote">
             <font-awesome-icon icon="trash" />
-          </a>
+            </a>
         </div>
         <div class="card-body pb-0">
-          <div class="note-text" contenteditable="true" @blur="updateNote" >{{ text }}</div>
+            <div class="note-text" contenteditable="true" @blur="updateNote" >{{ text }}</div>
         </div>
-      </div>
+        </div>
     </div>
 </template>
 
@@ -64,5 +64,9 @@ export default {
 .card-header {
   background: transparent;
   border: 0;
+}
+
+.delete-button:hover {
+opacity: 0.6;
 }
 </style>

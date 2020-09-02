@@ -70,4 +70,8 @@ export default {
 .add-note > a {
   color: rgba(246, 204, 118, 0.5);
 }
+
+.add-button:hover {
+  color: black;
+}
 </style>

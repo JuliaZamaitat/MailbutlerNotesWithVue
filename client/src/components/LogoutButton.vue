@@ -19,4 +19,7 @@ export default {
 
 <style scoped>
 
+.btn:hover{
+    opacity: 0.6;
+}
 </style>
