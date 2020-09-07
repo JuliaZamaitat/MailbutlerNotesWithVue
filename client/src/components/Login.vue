@@ -164,6 +164,11 @@ h2 {
   animation: noteUp 2s ease-in-out;
   transform-origin: top;
   animation-delay: 1s;
+  animation-iteration-count: 1;
+}
+
+#upper-note:hover, #right-note:hover, #left-note:hover {
+    animation: hoverAnimation 1s ease-in-out;
 }
 
 #right-note {
@@ -187,6 +192,15 @@ h2 {
   }
 }
 
+@keyframes hoverAnimation {
+  0%, 100% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(50deg);
+  }
+}
+
 @keyframes noteShake {
   0%, 100% {
     transform: rotateZ(0deg);
@@ -194,7 +208,7 @@ h2 {
   50%  {
     transform: rotateZ(10deg);
   }
- 
+
 }
 
 @keyframes noteShakeLeft {
@@ -203,6 +217,25 @@ h2 {
   }
   50%  {
     transform: rotateZ(-5deg);
+  }
+}
+
+ #torso, #lower-body, #arm, #face, #hair {
+  animation: walk 4s ease-in-out infinite;
+  animation-delay: 1s;
+  transform-origin: center;
+}
+
+
+@keyframes walk {
+  0% {
+    transform: translateX(0%) rotateZ(0deg);
+  }
+  25%   {
+		transform: translateX(-5%) rotateZ(3deg);
+	}
+	50% {
+    transform: translateX(0%) rotateZ(0deg);
   }
 }
 
