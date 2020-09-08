@@ -36,6 +36,7 @@ export default new Vuex.Store({
     },
     logout: ({ commit }) => {
       commit('RESET', '')
+      Axios.defaults.headers.common['Authorization'] = null
     }
   }
 })

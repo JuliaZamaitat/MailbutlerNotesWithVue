@@ -81,7 +81,7 @@ export default {
   methods: {
     async login () {
       try {
-        const credentials = {
+        let credentials = {
           email: this.email,
           password: this.password
         }
@@ -225,7 +225,6 @@ h2 {
   animation-delay: 1s;
   transform-origin: center;
 }
-
 
 @keyframes walk {
   0% {
